@@ -1,0 +1,23 @@
+
+#home{
+    background-color: blueviolet;
+    height: 200px;
+    align-items: stretch;
+    text-align: center;
+}
+
+#name{
+    color: white;
+}
+
+#create{
+ 
+}
+
+#container{display: flex;
+            align-items: stretch;}
+
+#entry{float: left;width: 100%;}
+
+#exit{float: center;width: 100%;}
+#balance{float: right;width: 100%;}
