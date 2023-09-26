@@ -1,2 +1,2 @@
 # DTMoney
-## Adding a prototype interface
+## Adding a prototype with HTML,CSS and JS interface.

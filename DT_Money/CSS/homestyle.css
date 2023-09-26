@@ -1,6 +1,6 @@
 
 #home{
-    background-color: blueviolet;
+    background-color: #5429CC;
     height: 200px;
     align-items: stretch;
     text-align: center;
@@ -10,9 +10,6 @@
     color: white;
 }
 
-#create{
- 
-}
 
 #container{display: flex;
             align-items: stretch;}
@@ -21,3 +18,4 @@
 
 #exit{float: center;width: 100%;}
 #balance{float: right;width: 100%;}
+

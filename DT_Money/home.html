@@ -1,36 +1,52 @@
-
 <!DOCTYPE html>
 <html>
- 
+   
   <head>
-  <title>DT Money</title>
-  <link rel="stylesheet" href="./CSS/homestyle.css">
+    <title>DT Money</title>
+    <link rel="stylesheet" href="./CSS/homestyle.css" />
+    <link rel="stylesheet" href="./CSS/formstyle.css" />
   </head>
- 
+   
   <body>
     <div id="home">
-        <div id="container">
-            <div id="name">
-                <h1>DT Money</h1>
-            </div>
-            <div id="button">
-                <button id="create"> Nueva transacción</button>
-            </div>
-
+      <div id="container">
+        <div id="name">
+          <h1>DT Money</h1>
         </div>
-      
-        
+        <div id="button">
+          <button id="CreateTransactionBtn">Nueva transacción</button>
+        </div>
+      </div>
     </div>
 
     <div id="container">
-        <div id="entry">Entradas</div>
-        <div id="exit">Salidas</div>
-        <div id="balance">Balance</div>
+      <div id="entry">Entradas</div>
+      <div id="exit">Salidas</div>
+      <div id="balance">Balance</div>
     </div>
 
     <div id="info">
-        <h1>Titulo</h1>
+      <h1>Titulo</h1>
     </div>
-    
+
+    <!-- Transaction Form-->
+    <div id="transactionform" class="modal">
+      <div class="content">
+        <h1>Registrar transacción</h1>
+        <form>
+          <input type="text" id="fname" value="Nombre" /><br />
+          <input type="text" id="fprice" value="Precio" /><br />
+          <div class="options">
+            <input type="radio" id="r1" value="Entry" name="type" />
+            <label for="Entry">Entradas</label><br />
+            <input type="radio" id="r2" value="Exit" name="type"/>
+            <label for="Exit">Salidas</label><br />
+          </div>
+          <input type="text" id="fcategory" value="Categoria" /><br />
+
+          <input  id="closeSubmit" type="submit" value="Enviar" />
+        </form>
+      </div>
+    </div>
   </body>
-  </html>
+</html>
