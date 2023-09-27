@@ -5,6 +5,7 @@
   text-align: center;
 }
 
+
 table {
   width: 100%;
 }
@@ -20,6 +21,7 @@ table {
   border: #6933ff;
   font-size: 25px;
 }
+
 #containerbalance {
   display: flex;
   align-items: stretch;
@@ -50,4 +52,5 @@ table {
 
 #info td {
   text-align: center;
+
 }
