@@ -9,17 +9,19 @@
    
   <body>
     <div id="home">
-      <div id="container">
-        <div id="name">
-          <h1>DT Money</h1>
-        </div>
-        <div id="button">
-          <button id="CreateTransactionBtn">Nueva transacción</button>
-        </div>
-      </div>
+
+        <table>
+          <tr>
+            <td colspan="2" id="title"><h1>DT Money</h1></td>
+            <td colspan="2" id="BTNtitle">  <button id="CreateTransactionBtn">Nueva transacción</button>
+            </td>
+          </tr>
+        </table>
+        
+
     </div>
 
-    <div id="container">
+    <div id="containerbalance">
       <div id="entry">Entradas</div>
       <div id="exit">Salidas</div>
       <div id="balance">Balance</div>
@@ -71,5 +73,51 @@
         popup.style.display = "none";
       });
     </script>
+
+
+  <!--Script that prints the transactions user inputs-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form");
+      const table = document.querySelector("#info table");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const title = document.querySelector("#fname").value;
+        const price = document.querySelector("#fprice").value;
+        const category = document.querySelector("#fcategory").value;
+        const date = new Date().toLocaleDateString();
+        const transaction = document.querySelector('input[name="type"]:checked').value;
+        
+        const newRow = document.createElement("tr");
+
+        const titleCell = document.createElement("td");
+        titleCell.textContent = title;
+
+        const priceCell = document.createElement("td");
+        priceCell.textContent = price;
+
+        const categoryCell = document.createElement("td");
+        categoryCell.textContent = category;
+
+        const dateCell = document.createElement("td");
+        dateCell.textContent = date;
+
+        const transactionCell = document.createElement("td");
+        transactionCell.textContent = transaction;
+
+        newRow.appendChild(titleCell);
+        newRow.appendChild(priceCell);
+        newRow.appendChild(categoryCell);
+        newRow.appendChild(dateCell);
+        newRow.appendChild(transactionCell);
+
+        table.appendChild(newRow);
+
+        form.reset();
+      });
+    });
+  </script>
   </body>
 </html>
