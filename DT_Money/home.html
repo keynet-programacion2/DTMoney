@@ -1,153 +1,173 @@
 <!DOCTYPE html>
 <html>
- 
-<head>
-  <title>DT Money</title>
-  <link rel="stylesheet" href="./CSS/homestyle.css" />
-  <link rel="stylesheet" href="./CSS/formstyle.css" />
-</head>
- 
-<body>
-  <div id="home">
-    <table>
-      <tr>
-        <td colspan="2" id="title"><h1>DT Money</h1></td>
-        <td colspan="2" id="BTNtitle">
-          <button id="CreateTransactionBtn">Nueva transacción</button>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <div id="containerbalance">
-    <div id="entry">
-      Entradas
-      <br />
-      <span id="entryn"></span>
+   
+  <head>
+    <title>DT Money</title>
+    <link rel="stylesheet" href="./CSS/homestyle.css" />
+    <link rel="stylesheet" href="./CSS/formstyle.css" />
+  </head>
+   
+  <body>
+    <div id="home">
+      <table id="homewindow">
+        <tr>
+          <td colspan="2" id="title"><h1>DT Money</h1></td>
+          <td colspan="2" id="BTNtitle">
+            <button id="CreateTransactionBtn">Nueva transacción</button>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div id="exit">
-      Salidas
-      <br />
-      <span id="exitn"></span>
-    </div>
-    <div id="balance">Balance
-      <br>
-      <span id="balancen"></span>
-    </div>
-  </div>
-
-  <div id="info">
-    <table>
-      <tr>
-        <th>Titulo</th>
-        <th>Precio</th>
-        <th>Categoria</th>
-        <th>Fecha</th>
-      </tr>
-    </table>
-  </div>
-
-  <!-- Transaction Form-->
-  <div id="transactionform" class="modal">
-    <h1>Registrar transacción</h1>
-    <form>
-      <input type="text" id="fname" placeholder="Nombre" /><br />
-      <br />
-      <input type="number" id="fprice" placeholder="Precio" /><br />
-      <br />
-      <div class="options">
-        <input type="radio" id="r1" value="1" name="type" />
-        <label for="r1">Entradas</label>
-        <input type="radio" id="r2" value="-1" name="type" />
-        <label for="r2">Salidas</label><br />
+    <div id="window">
+      <div id="containerbalance">
+        <div id="entry">
+          <p>Entradas</p>
+          <br />
+          <span id="entryn"></span>
+        </div>
+        <div id="exit">
+          <p>Salidas</p>
+          <br />
+          <span id="exitn"></span>
+        </div>
+        <div id="balance">
+          <p>Balance</p>
+          <br />
+          <span id="balancen"></span>
+        </div>
       </div>
-      <br />
-      <input type="text" id="fcategory" placeholder="Categoria" /><br />
-      <br />
-      <input id="submit" type="submit" value="Enviar" />
-    </form>
-  </div>
 
-  <!--Script to show the popup transaction-->
-  <script>
-    const showPopupBtn = document.getElementById("CreateTransactionBtn");
-    const popup = document.getElementById("transactionform");
-    const closePopupBtn = document.getElementById("submit");
+      <div id="info">
+        <table cellspacing="0">
+          <tr>
+            <th>Titulo</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Fecha</th>
+          </tr>
+        </table>
+      </div>
 
-    showPopupBtn.addEventListener("click", () => {
-      popup.style.display = "block";
-    });
+      <!-- Transaction Form-->
+      <div id="transactionform" class="modal">
+        <h1>Registrar transacción</h1>
+        <form>
+          <input type="text" id="fname" placeholder="Nombre" /><br />
+          <br />
+          <input type="number" id="fprice" placeholder="Precio" /><br />
+          <br />
+          <div class="options">
+            <input type="radio" id="r1" value="1" name="type" />
+            <label for="r1">Entradas</label>
+            <input type="radio" id="r2" value="-1" name="type" />
+            <label for="r2">Salidas</label><br />
+          </div>
+          <br />
+          <input type="text" id="fcategory" placeholder="Categoria" /><br />
+          <br />
+          <input id="submit" type="submit" value="Enviar" />
+        </form>
+      </div>
+    </div>
 
-    closePopupBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-  </script>
-
-  <!--Script that prints the transactions user inputs-->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.querySelector("form");
-      const table = document.querySelector("#info table");
-      let totalEntrys = 0
-      let totalExits = 0;
-      let totalBalance = 0;
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const title = document.querySelector("#fname").value;
-        const price = document.querySelector("#fprice").value;
-        const category = document.querySelector("#fcategory").value;
-        const date = new Date().toLocaleDateString();
-        const transaction = document.querySelector(
-          'input[name="type"]:checked'
-        ).value;
-
-        if (transaction === "1") {
-          totalEntrys += parseFloat(price);
-          const entrynSpan = document.getElementById("entryn");
-          entrynSpan.textContent = totalEntrys.toFixed(2);
-        } 
-        if (transaction === "-1") {
-
-          totalExits += parseFloat(price);
-          const exitnSpan = document.getElementById("exitn");
-          exitnSpan.textContent = totalExits.toFixed(2);
-        } 
-
-        totalBalance = totalEntrys - totalExits;
-        const balancenSpan = document.getElementById("balancen");
-        balancenSpan.textContent = totalBalance.toFixed(2);
-
-        
     
 
-        const newRow = document.createElement("tr");
+    <!--Script to show the popup transaction-->
+    <script>
+      const showPopupBtn = document.getElementById("CreateTransactionBtn");
+      const popup = document.getElementById("transactionform");
+      const closePopupBtn = document.getElementById("submit");
 
-        const titleCell = document.createElement("td");
-        titleCell.textContent = title;
-
-        const priceCell = document.createElement("td");
-        priceCell.textContent = price;
-
-        const categoryCell = document.createElement("td");
-        categoryCell.textContent = category;
-
-        const dateCell = document.createElement("td");
-        dateCell.textContent = date;
-
-
-        newRow.appendChild(titleCell);
-        newRow.appendChild(priceCell);
-        newRow.appendChild(categoryCell);
-        newRow.appendChild(dateCell);
-
-
-        table.appendChild(newRow);
-
-        form.reset();
+      showPopupBtn.addEventListener("click", () => {
+        popup.style.display = "block";
       });
-    });
-  </script>
-</body>
+
+      closePopupBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+    </script>
+
+    <!--Script that prints the transactions user inputs-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const table = document.querySelector("#info table");
+        let totalEntrys = parseFloat(localStorage.getItem("totalEntrys")) || 0;
+        let totalExits = parseFloat(localStorage.getItem("totalExits")) || 0;
+        let totalBalance =
+          parseFloat(localStorage.getItem("totalBalance")) || 0;
+
+        // Update the UI with the loaded values
+        const entrynSpan = document.getElementById("entryn");
+        entrynSpan.textContent = totalEntrys.toFixed(2);
+
+        const exitnSpan = document.getElementById("exitn");
+        exitnSpan.textContent = totalExits.toFixed(2);
+
+        const balancenSpan = document.getElementById("balancen");
+        balancenSpan.textContent = totalBalance.toFixed(2);
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const title = document.querySelector("#fname").value;
+          let price = document.querySelector("#fprice").value;
+          const category = document.querySelector("#fcategory").value;
+          const date = new Date().toLocaleDateString();
+          const transaction = document.querySelector(
+            'input[name="type"]:checked'
+          ).value;
+
+          if (transaction === "1") {
+            totalEntrys += parseFloat(price);
+            const entrynSpan = document.getElementById("entryn");
+            entrynSpan.textContent = totalEntrys.toFixed(2) + " €";
+          }
+          if (transaction === "-1") {
+            totalExits += parseFloat(price);
+            const exitnSpan = document.getElementById("exitn");
+            exitnSpan.textContent = totalExits.toFixed(2) + " €";
+          }
+
+          totalBalance = totalEntrys - totalExits;
+          const balancenSpan = document.getElementById("balancen");
+          balancenSpan.textContent = totalBalance.toFixed(2) + " €";
+
+          const newRow = document.createElement("tr");
+
+          const titleCell = document.createElement("td");
+          titleCell.textContent = title;
+
+          const priceCell = document.createElement("td");
+          if (transaction === "1") {
+            priceCell.className = "green-text";
+
+            priceCell.textContent = parseFloat(price).toFixed(2) + " €";
+          } else if (transaction === "-1") {
+            priceCell.className = "red-text";
+
+            priceCell.textContent = "- " + parseFloat(price).toFixed(2) + " €";
+          }
+
+          const categoryCell = document.createElement("td");
+          categoryCell.textContent = category;
+
+          const dateCell = document.createElement("td");
+          dateCell.textContent = date;
+
+          newRow.appendChild(titleCell);
+          newRow.appendChild(priceCell);
+          newRow.appendChild(categoryCell);
+          newRow.appendChild(dateCell);
+
+          table.appendChild(newRow);
+
+          form.reset();
+
+          localStorage.setItem("totalEntrys", totalEntrys.toFixed(2) + " €");
+          localStorage.setItem("totalExits", totalExits.toFixed(2) + " €");
+          localStorage.setItem("totalBalance", totalBalance.toFixed(2) + " €");
+        });
+      });
+    </script>
+  </body>
 </html>
