@@ -1,21 +1,29 @@
-
-#home{
-    background-color: #5429CC;
-    height: 200px;
-    align-items: stretch;
-    text-align: center;
+#home {
+  background-color: #5429cc;
+  height: 200px;
+  align-items: stretch;
+  text-align: center;
 }
 
-#name{
-    color: white;
+#name {
+  color: white;
 }
 
+#container {
+  display: flex;
+  align-items: stretch;
+}
 
-#container{display: flex;
-            align-items: stretch;}
+#entry {
+  float: left;
+  width: 100%;
+}
 
-#entry{float: left;width: 100%;}
-
-#exit{float: center;width: 100%;}
-#balance{float: right;width: 100%;}
-
+#exit {
+  float: center;
+  width: 100%;
+}
+#balance {
+  float: right;
+  width: 100%;
+}
