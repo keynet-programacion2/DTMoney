@@ -127,8 +127,16 @@
             const exitnSpan = document.getElementById("exitn");
             exitnSpan.textContent = totalExits.toFixed(2) + " €";
           }
+        
 
           totalBalance = totalEntrys - totalExits;
+          const balancenDiv = document.getElementById("balance");
+          if (totalBalance >= "0") {
+            balancenDiv.className = "green-balance";
+          }
+          else if(totalBalance < "1"){
+            balancenDiv.className = "red-balance";
+          }
           const balancenSpan = document.getElementById("balancen");
           balancenSpan.textContent = totalBalance.toFixed(2) + " €";
 
