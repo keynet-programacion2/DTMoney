@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+ 
 <head>
   <title>DT Money</title>
   <link rel="stylesheet" href="./CSS/homestyle.css" />
@@ -146,52 +147,7 @@
 
         form.reset();
       });
-    </script>
-
-
-  <!--Script that prints the transactions user inputs-->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.querySelector("form");
-      const table = document.querySelector("#info table");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const title = document.querySelector("#fname").value;
-        const price = document.querySelector("#fprice").value;
-        const category = document.querySelector("#fcategory").value;
-        const date = new Date().toLocaleDateString();
-        const transaction = document.querySelector('input[name="type"]:checked').value;
-        
-        const newRow = document.createElement("tr");
-
-        const titleCell = document.createElement("td");
-        titleCell.textContent = title;
-
-        const priceCell = document.createElement("td");
-        priceCell.textContent = price;
-
-        const categoryCell = document.createElement("td");
-        categoryCell.textContent = category;
-
-        const dateCell = document.createElement("td");
-        dateCell.textContent = date;
-
-        const transactionCell = document.createElement("td");
-        transactionCell.textContent = transaction;
-
-        newRow.appendChild(titleCell);
-        newRow.appendChild(priceCell);
-        newRow.appendChild(categoryCell);
-        newRow.appendChild(dateCell);
-        newRow.appendChild(transactionCell);
-
-        table.appendChild(newRow);
-
-        form.reset();
-      });
     });
   </script>
-  </body>
+</body>
 </html>
