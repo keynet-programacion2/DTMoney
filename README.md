@@ -4,8 +4,8 @@
  Que mediante a un pop-up registras las transacciones y automáticamente te calcula el balance.
  </p>
 > Tecnologias
-<ol>
+<ul>
   <li>HTML</li>
   <li>CSS</li>
   <li>JS</li>
-</ol>
+</ul>
