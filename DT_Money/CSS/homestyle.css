@@ -3,7 +3,15 @@
   height: 200px;
   align-items: stretch;
   text-align: center;
-  position: relative;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  left: 0%;
+  padding-bottom: 2%;
+  align-items: stretch;
+}
+#homewindow {
+  margin-top: 20px;
 }
 
 #window {
