@@ -29,17 +29,17 @@
         <div id="entry">
           <p>Entradas <img src="./Images/home/income.svg" /></p>
           <br />
-          <span> <span id="entryn"></span> € </span>
+          <span> <span id="entryn"></span></span>
         </div>
         <div id="exit">
           <p>Salidas <img src="./Images/home/outcome.svg" /></p>
           <br />
-          <span> <span id="exitn"></span> € </span>
+          <span> <span id="exitn"></span></span>
         </div>
         <div class="white-balance" id="balance">
           <p>Total <img src="./Images/home/total.svg" /></p>
           <br />
-          <span> <span id="balancen"></span> € </span>
+          <span> <span id="balancen"></span></span>
         </div>
       </div>
 
@@ -110,15 +110,17 @@
         let totalBalance =
           parseFloat(localStorage.getItem("totalBalance")) || 0;
 
+
+
         // Update the UI with the loaded values
         const entrynSpan = document.getElementById("entryn");
-        entrynSpan.textContent = totalEntrys.toFixed(2);
+        entrynSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalEntrys));
 
         const exitnSpan = document.getElementById("exitn");
-        exitnSpan.textContent = totalExits.toFixed(2);
+        exitnSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalExits));
 
         const balancenSpan = document.getElementById("balancen");
-        balancenSpan.textContent = totalBalance.toFixed(2);
+        balancenSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalBalance));
         form.addEventListener("submit", function (e) {
           e.preventDefault();
 
@@ -133,12 +135,12 @@
           if (transaction === "1") {
             totalEntrys += parseFloat(price);
             const entrynSpan = document.getElementById("entryn");
-            entrynSpan.textContent = totalEntrys.toFixed(2);
+            entrynSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalEntrys));
           }
           if (transaction === "-1") {
             totalExits += parseFloat(price);
             const exitnSpan = document.getElementById("exitn");
-            exitnSpan.textContent = totalExits.toFixed(2);
+            exitnSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalExits));
           }
 
           totalBalance = totalEntrys - totalExits;
@@ -149,7 +151,7 @@
             balancenDiv.className = "red-balance";
           }
           const balancenSpan = document.getElementById("balancen");
-          balancenSpan.textContent = totalBalance.toFixed(2);
+          balancenSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalBalance));
 
           const newRow = document.createElement("tr");
 
@@ -159,12 +161,10 @@
           const priceCell = document.createElement("td");
           if (transaction === "1") {
             priceCell.className = "green-text";
-
-            priceCell.textContent = parseFloat(price).toFixed(2) + " €";
+            priceCell.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(price));
           } else if (transaction === "-1") {
             priceCell.className = "red-text";
-
-            priceCell.textContent = "- " + parseFloat(price).toFixed(2) + " €";
+            priceCell.textContent = "- "+(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(price));
           }
 
           const categoryCell = document.createElement("td");
