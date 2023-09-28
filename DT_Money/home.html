@@ -105,10 +105,9 @@
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
         const table = document.querySelector("#info table");
-        let totalEntrys = parseFloat(localStorage.getItem("totalEntrys")) || 0;
-        let totalExits = parseFloat(localStorage.getItem("totalExits")) || 0;
-        let totalBalance =
-          parseFloat(localStorage.getItem("totalBalance")) || 0;
+        let totalEntrys =  0;
+        let totalExits =  0;
+        let totalBalance = 0;
 
         // Update the UI with the loaded values
         const entrynSpan = document.getElementById("entryn");
@@ -182,9 +181,8 @@
 
           form.reset();
 
-          localStorage.setItem("totalEntrys", totalEntrys.toFixed(2));
-          localStorage.setItem("totalExits", totalExits.toFixed(2));
-          localStorage.setItem("totalBalance", totalBalance.toFixed(2));
+
+          
         });
       });
     </script>
