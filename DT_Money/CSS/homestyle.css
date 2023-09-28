@@ -3,14 +3,19 @@
   height: 200px;
   align-items: stretch;
   text-align: center;
+  position: relative;
 }
 
+#window {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  z-index: 1;
+}
 
 table {
   width: 80%;
   margin: 0% 10% 10% 10%;
-
-  
 }
 
 #title {
@@ -18,11 +23,17 @@ table {
   text-align: left;
 }
 
+
+
 #CreateTransactionBtn {
-  color: white;
   background-color: #6933ff;
   border: #6933ff;
-  font-size: 25px;
+  color: white;
+  font-size: 20px;
+  font-family: Poppins;
+  font-weight: 600;
+  word-wrap: break-word;
+  float: right;
 }
 
 #containerbalance {
@@ -32,9 +43,35 @@ table {
   text-align: center;
   margin-left: 90px;
   margin-right: 90px;
+  width: 1800px;
 }
 
 #entry {
+  float: left;
+  width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: 1px solid black;
+  background-color: white;
+  height: 100%;
+  text-align: left;
+  padding-bottom: 12px;
+}
+
+#entry p {
+  font-size: 18px;
+  margin-left: 12px;
+  color: #969cb2;
+}
+
+#entry span {
+  font-size: 40px;
+  margin-left: 12px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+#exit {
   float: left;
   width: 100%;
   border: 1px solid black;
@@ -46,102 +83,97 @@ table {
   padding-bottom: 12px;
 }
 
-#entry p{
-    font-size: 18px;
-    margin-left: 12px;
+#exit p {
+  font-size: 18px;
+  margin-left: 12px;
+  color: #969cb2;
 }
 
-#entry span{
-    font-size: 30px;
-    margin-left: 12px;
-    
+#exit span {
+  font-size: 40px;
+  margin-left: 12px;
+  font-weight: 400;
+  word-wrap: break-word;
 }
 
-#exit {
-    float: left;
-    width: 100%;
-    border: 1px solid black;
-    background-color: white;
-    height: 100%;
-    margin-left: 15px;
-    margin-right: 15px;
-    text-align: left;
-    padding-bottom: 12px;
-  }
-  
-  #exit p{
-      font-size: 18px;
-      margin-left: 12px;
-  }
-  
-  #exit span{
-      font-size: 30px;
-      margin-left: 12px;
-      
-  }
+#balance {
+  float: left;
+  width: 100%;
+  border: 1px solid black;
+  height: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: left;
+  padding-bottom: 12px;
 
-  #balance {
-    float: left;
-    width: 100%;
-    border: 1px solid black;
-    height: 100%;
-    margin-left: 15px;
-    margin-right: 15px;
-    text-align: left;
-    padding-bottom: 12px;
-    color: #fff;
-  }
-  
-  #balance p{
-      font-size: 18px;
-      margin-left: 12px;
-  }
-  
-  #balance span{
-      font-size: 30px;
-      margin-left: 12px;
-      
-  }
+}
 
+#balance p {
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+#balance span {
+  font-size: 40px;
+  margin-left: 12px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
 
 #info {
+  position: absolute;
   font-size: 20px;
-  margin-top: 30px;
+  margin-top: 160px;
+  width: 1800px;
 }
 
-#info tr th {
-    text-align: left;
-    font-size: 18px;
-    color: #969CB2;
-  
-  }
+#info table{
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+#info table tr th {
+  text-align: left;
+  font-size: 18px;
+  color: #969cb2;
+}
 
 #info td {
-    background-color: white;
-    font-size: 25px;
-    font-weight: 500;
-    word-wrap: break-word;
-   
-   
-  }
-
-  body{
-    background-color: lightgray;
-    font-family: Poppins;
-  }
-
-  .green-text {
-    color: green;
-  }
-  .red-text {
-    color: red;
-  }
-
-  .green-balance {
-    background-color: #33CC95;
-  }
-  .red-balance {
-    background-color: #fa3636;
-  }
+  background-color: white;
+  font-size: 25px;
+  font-weight: 500;
+  word-wrap: break-word;
+  border-spacing: 3px;
+}
 
 
+body {
+  background-color: lightgray;
+  font-family: Poppins;
+}
+
+.green-text {
+  color: green;
+}
+.red-text {
+  color: red;
+}
+
+
+.white-balance{
+  background-color: white;
+  color: black;
+}
+.white-balance p{
+  background-color: white;
+  color: #969cb2;
+}
+
+.green-balance {
+  background-color: #33cc95;
+  color: white;
+}
+.red-balance {
+  background-color: #fa3636;
+  color: white;
+}
