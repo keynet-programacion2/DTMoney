@@ -5,13 +5,19 @@
     <title>DT Money</title>
     <link rel="stylesheet" href="./CSS/homestyle.css" />
     <link rel="stylesheet" href="./CSS/formstyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
   </head>
    
   <body>
     <div id="home">
       <table id="homewindow">
         <tr>
-          <td colspan="2" id="title"><h1>dt money</h1></td>
+          <td colspan="2" id="title">
+            <h1><img src="./Images/home/logo.svg" /></h1>
+          </td>
           <td colspan="4" id="BTNtitle">
             <button id="CreateTransactionBtn">Nueva transacción</button>
           </td>
@@ -21,25 +27,19 @@
     <div id="window">
       <div id="containerbalance">
         <div id="entry">
-          <p>Entradas</p>
+          <p>Entradas <img src="./Images/home/income.svg" /></p>
           <br />
-          <span>
-            <span id="entryn"></span> €
-          </span>
+          <span> <span id="entryn"></span> € </span>
         </div>
         <div id="exit">
-          <p>Salidas</p>
+          <p>Salidas <img src="./Images/home/outcome.svg" /></p>
           <br />
-          <span>
-          <span id="exitn"></span> €
-        </span>
+          <span> <span id="exitn"></span> € </span>
         </div>
         <div class="white-balance" id="balance">
-          <p>Total</p>
+          <p>Total <img src="./Images/home/total.svg" /></p>
           <br />
-          <span>
-          <span id="balancen"></span> €
-        </span>
+          <span> <span id="balancen"></span> € </span>
         </div>
       </div>
 
@@ -56,6 +56,9 @@
 
       <!-- Transaction Form-->
       <div id="transactionform" class="modal">
+        <button id="closePopupBtn">
+          <img src="./Images/form/close.svg" />
+        </button> 
         <h1>Registrar transacción</h1>
         <form>
           <input type="text" id="fname" placeholder="Nombre" /><br />
@@ -64,25 +67,24 @@
           <br />
           <div class="options">
             <input type="radio" id="r1" value="1" name="type" />
-            <label for="r1">Entradas</label>
+            <label for="r1" id="r1l"><img src="./Images/form/income.svg" />    Entrada</label>
             <input type="radio" id="r2" value="-1" name="type" />
-            <label for="r2">Salidas</label><br />
+            <label for="r2" id="r2l"><img src="./Images/form/outcome.svg" />   Salida</label><br />
           </div>
           <br />
           <input type="text" id="fcategory" placeholder="Categoria" /><br />
           <br />
-          <input id="submit" type="submit" value="Enviar" />
+          <button id="submit" type="submit">Registrar</button> 
         </form>
       </div>
     </div>
-
-    
 
     <!--Script to show the popup transaction-->
     <script>
       const showPopupBtn = document.getElementById("CreateTransactionBtn");
       const popup = document.getElementById("transactionform");
-      const closePopupBtn = document.getElementById("submit");
+      const closePopupBtn = document.getElementById("closePopupBtn");
+      const closePopupBtn2 = document.getElementById("submit");
 
       showPopupBtn.addEventListener("click", () => {
         popup.style.display = "block";
@@ -91,6 +93,11 @@
       closePopupBtn.addEventListener("click", () => {
         popup.style.display = "none";
       });
+      closePopupBtn2.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+
+      
     </script>
 
     <!--Script that prints the transactions user inputs-->
@@ -133,18 +140,16 @@
             const exitnSpan = document.getElementById("exitn");
             exitnSpan.textContent = totalExits.toFixed(2);
           }
-        
 
           totalBalance = totalEntrys - totalExits;
           const balancenDiv = document.getElementById("balance");
           if (totalBalance >= "0") {
             balancenDiv.className = "green-balance";
-          }
-          else if(totalBalance < "1"){
+          } else if (totalBalance < "1") {
             balancenDiv.className = "red-balance";
           }
           const balancenSpan = document.getElementById("balancen");
-          balancenSpan.textContent = totalBalance.toFixed(2) ;
+          balancenSpan.textContent = totalBalance.toFixed(2);
 
           const newRow = document.createElement("tr");
 

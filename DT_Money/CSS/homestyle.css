@@ -51,7 +51,6 @@ table {
   width: 100%;
   margin-left: 15px;
   margin-right: 15px;
-  border: 1px solid black;
   background-color: white;
   height: 100%;
   text-align: left;
@@ -60,7 +59,14 @@ table {
 
 #entry p {
   font-size: 18px;
-  margin-left: 12px;
+  margin-left: 20px;
+  color: #969cb2;
+}
+
+#entry p img {
+  font-size: 18px;
+  float: right;
+  margin-right: 20px;
   color: #969cb2;
 }
 
@@ -74,7 +80,6 @@ table {
 #exit {
   float: left;
   width: 100%;
-  border: 1px solid black;
   background-color: white;
   height: 100%;
   margin-left: 15px;
@@ -85,7 +90,14 @@ table {
 
 #exit p {
   font-size: 18px;
-  margin-left: 12px;
+  margin-left: 20px;
+  color: #969cb2;
+}
+
+#exit p img {
+  font-size: 18px;
+  float: right;
+  margin-right: 20px;
   color: #969cb2;
 }
 
@@ -99,7 +111,6 @@ table {
 #balance {
   float: left;
   width: 100%;
-  border: 1px solid black;
   height: 100%;
   margin-left: 15px;
   margin-right: 15px;
@@ -110,8 +121,16 @@ table {
 
 #balance p {
   font-size: 18px;
-  margin-left: 12px;
+  margin-left: 20px;
 }
+
+#balance p img {
+  font-size: 18px;
+  float: right;
+  margin-right: 20px;
+  color: #969cb2;
+}
+
 
 #balance span {
   font-size: 40px;
@@ -140,10 +159,11 @@ table {
 
 #info td {
   background-color: white;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   word-wrap: break-word;
   border-spacing: 3px;
+  padding: 20px;
 }
 
 
@@ -161,11 +181,11 @@ body {
 
 
 .white-balance{
-  background-color: white;
+  background-color: #e4e4e4;
   color: black;
 }
 .white-balance p{
-  background-color: white;
+  background-color: #e4e4e4;
   color: #969cb2;
 }
 
