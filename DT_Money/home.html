@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.3.1/decimal.min.js"></script>
   </head>
    
   <body>
@@ -52,7 +53,7 @@
             <th>Fecha</th>
           </tr>
         </table>
-      </div>
+                </div>
 
       <!-- Transaction Form-->
       <div id="transactionform" class="modal">
@@ -63,7 +64,7 @@
         <form>
           <input type="text" id="fname" placeholder="Nombre" /><br />
           <br />
-          <input type="number" id="fprice" placeholder="Precio" /><br />
+          <input type="text" id="fprice" placeholder="Precio" /><br />
           <br />
           <div class="options">
             <input type="radio" id="r1" value="1" name="type" />
@@ -102,12 +103,12 @@
 
     <!--Script that prints the transactions user inputs-->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () { 
         const form = document.querySelector("form");
         const table = document.querySelector("#info table");
-        let totalEntrys =  0;
-        let totalExits =  0;
-        let totalBalance = 0;
+        let totalEntrys = new Decimal(0) ;
+        let totalExits =  new Decimal(0) ;
+        let totalBalance = new Decimal(0) ;
 
 
 
@@ -124,7 +125,8 @@
           e.preventDefault();
 
           const title = document.querySelector("#fname").value;
-          let price = document.querySelector("#fprice").value;
+          const priceInput = document.getElementById("fprice");
+      const price = new Decimal(priceInput.value);
           const category = document.querySelector("#fcategory").value;
           const date = new Date().toLocaleDateString();
           const transaction = document.querySelector(
@@ -132,21 +134,19 @@
           ).value;
 
           if (transaction === "1") {
-            totalEntrys += parseFloat(price);
-            const entrynSpan = document.getElementById("entryn");
+            totalEntrys = totalEntrys.plus(price);
             entrynSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalEntrys));
-          }
+           }
           if (transaction === "-1") {
-            totalExits += parseFloat(price);
-            const exitnSpan = document.getElementById("exitn");
+            totalExits = totalExits.plus(price);
             exitnSpan.textContent = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalExits));
-          }
+           }
 
-          totalBalance = totalEntrys - totalExits;
+          totalBalance =  totalEntrys.minus(totalExits);
           const balancenDiv = document.getElementById("balance");
-          if (totalBalance >= "0") {
+          if (totalBalance.greaterThanOrEqualTo(0)) {
             balancenDiv.className = "green-balance";
-          } else if (totalBalance < "1") {
+          } else{
             balancenDiv.className = "red-balance";
           }
           const balancenSpan = document.getElementById("balancen");
@@ -182,7 +182,7 @@
           form.reset();
 
 
-          
+
         });
       });
     </script>
