@@ -12,6 +12,8 @@
 }
 #homewindow {
   margin-top: 20px;
+  width: 92%;
+  margin-left: 110px;
 }
 
 #window {
@@ -21,10 +23,7 @@
   z-index: 1;
 }
 
-table {
-  width: 80%;
-  margin: 0% 10% 10% 10%;
-}
+
 
 #title {
   color: #fff;
@@ -42,6 +41,10 @@ table {
   font-weight: 600;
   word-wrap: break-word;
   float: right;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #containerbalance {
@@ -63,6 +66,7 @@ table {
   height: 100%;
   text-align: left;
   padding-bottom: 12px;
+  border-radius: 5px;
 }
 
 #entry p {
@@ -94,6 +98,7 @@ table {
   margin-right: 15px;
   text-align: left;
   padding-bottom: 12px;
+  border-radius: 5px;
 }
 
 #exit p {
@@ -124,6 +129,7 @@ table {
   margin-right: 15px;
   text-align: left;
   padding-bottom: 12px;
+  border-radius: 5px;
 
 }
 
@@ -157,6 +163,8 @@ table {
 #info table{
   border-collapse: separate;
   border-spacing: 0 15px;
+  width: 98%;
+  margin-left: 110px;
 }
 
 #info table tr th {
@@ -181,11 +189,15 @@ body {
 }
 
 .green-text {
-  color: green;
+  color: #33CC95;
 }
 .red-text {
-  color: red;
+  color: #E52E4D;
 }
+.normal-text {
+  color: #969CB2;
+}
+
 
 
 .white-balance{
@@ -202,6 +214,6 @@ body {
   color: white;
 }
 .red-balance {
-  background-color: #fa3636;
+  background-color: #E52E4D;
   color: white;
 }

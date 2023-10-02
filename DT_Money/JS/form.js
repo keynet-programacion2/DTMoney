@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //se muestra el titulo
     const titleCell = document.createElement("td");
     titleCell.textContent = title;
+    titleCell.className = "normal-text";
     // se muestra el precio aplicando una classe
     const priceCell = document.createElement("td");
     if (transaction === "1") {
@@ -89,9 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const categoryCell = document.createElement("td");
     categoryCell.textContent = category;
+    categoryCell.className = "normal-text";
 
     const dateCell = document.createElement("td");
     dateCell.textContent = date;
+    dateCell.className = "normal-text";
 
     const transactionCell = document.createElement("td");
     transactionCell.textContent = transaction;

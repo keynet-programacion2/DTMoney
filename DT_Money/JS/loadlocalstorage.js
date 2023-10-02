@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const newRow = document.createElement("tr");
         const titleCell = document.createElement("td");
         titleCell.textContent = transaction.title;
+        titleCell.className = "normal-text";
 
         const priceCell = document.createElement("td");
 
@@ -68,9 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const categoryCell = document.createElement("td");
         categoryCell.textContent = transaction.category;
+        categoryCell.className = "normal-text";
 
         const dateCell = document.createElement("td");
         dateCell.textContent = transaction.date;
+        dateCell.className = "normal-text";
 
         newRow.appendChild(titleCell);
         newRow.appendChild(priceCell);
