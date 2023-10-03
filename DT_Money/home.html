@@ -62,9 +62,9 @@
         </button>
         <h1>Registrar transacción</h1>
         <form>
-          <input type="text" id="fname" placeholder="Nombre" /><br />
+          <input type="text" name="fname" id="fname" placeholder="Nombre" /><br />
           <br />
-          <input type="text" id="fprice" placeholder="Precio" /><br />
+          <input type="number" name="fprice" id="fprice" placeholder="Precio" step="0.01" /><br />
           <br />
           <div class="options">
             <input type="radio" id="r1" value="1" name="type" />
@@ -77,7 +77,7 @@
             ><br />
           </div>
           <br />
-          <input type="text" id="fcategory" placeholder="Categoria" /><br />
+          <input type="text" id="fcategory" name="fcategory" placeholder="Categoria" /><br />
           <br />
           <button id="submit" type="submit">Registrar</button>
         </form>

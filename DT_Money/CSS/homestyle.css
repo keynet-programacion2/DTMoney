@@ -198,8 +198,6 @@ body {
   color: #969CB2;
 }
 
-
-
 .white-balance{
   background-color: #e4e4e4;
   color: black;
@@ -217,3 +215,10 @@ body {
   background-color: #E52E4D;
   color: white;
 }
+
+
+.invisible{
+  display: none;
+  visibility: hidden;
+}
+

@@ -75,10 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
         dateCell.textContent = transaction.date;
         dateCell.className = "normal-text";
 
+        const transactionCell = document.createElement("td");
+        transactionCell.textContent = transaction.flag;
+        transactionCell.className = "invisible";
+
         newRow.appendChild(titleCell);
         newRow.appendChild(priceCell);
         newRow.appendChild(categoryCell);
         newRow.appendChild(dateCell);
+        newRow.appendChild(transactionCell);
 
         table.appendChild(newRow);
       });
