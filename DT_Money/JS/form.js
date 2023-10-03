@@ -1,4 +1,4 @@
-const transacción = [];
+const transactions = [];
 const INITIAL_VALUES = {
   totalEntrys: 0,
   totalExits: 0,
@@ -6,13 +6,15 @@ const INITIAL_VALUES = {
 };
 
 function printLine(transaction) {
+  //search table
   const table = document.querySelector("#info table");
+  //create a tr
   const newRow = document.createElement("tr");
-
+  //Create ftitle as a td
   const titleCell = document.createElement("td");
   titleCell.textContent = transaction.title;
   titleCell.className = "normal-text";
-
+   //Create fprice as a td and assign class(if transaction.flag(radiobutton value) it's entry or exit) and format the price to €
   const priceCell = document.createElement("td");
   if (transaction.flag == '1') {
     priceCell.className = "green-text";
@@ -27,36 +29,42 @@ function printLine(transaction) {
       currency: "EUR",
     }).format(transaction.price);
   }
-
-
+  //Create the category as a td
   const categoryCell = document.createElement("td");
   categoryCell.textContent = transaction.category;
   categoryCell.className = "normal-text";
-
+  //Create the date as a td 
   const dateCell = document.createElement("td");
-
   dateCell.textContent = transaction.date.toLocaleDateString();;
   dateCell.className = "normal-text";
-
+  //append the td's to the tr
   newRow.appendChild(titleCell);
   newRow.appendChild(priceCell);
   newRow.appendChild(categoryCell);
   newRow.appendChild(dateCell);
-
+  //append the tr in table
   table.appendChild(newRow);
-
 }
 
-function recalculTotals() {
-  const totals = transactions.reduce((acc, el) => {
-    return acc;
-  }, INITIAL_VALUES);
+function recalculTotals(transaction) {
 
-  // buscar elementos html y asignar valores
+  const totals = transactions.reduce((totals,transaction) => {
+    
+    console.log(totals)
+    console.log(transaction)
+    if (transaction.flag === "1") {
+      totals.totalEntrys += transaction.price;
+    } else if (transaction.flag === "0") {
+      totals.totalExits += transaction.price;
+    }
+    
+
+    return totals;
+  }, INITIAL_VALUES);
+  console.log(INITIAL_VALUES)
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const transactions = [];
   const form = document.querySelector("form");
   let totalEntrys = new Decimal(0);
   let totalExits = new Decimal(0);
@@ -89,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const transactionstoSave = {
       title: data.fname,
-      price: data.fprice,
+      price: parseFloat(data.fprice),
       category: data.fcategory,
       date: new Date(),
       flag: data.type,
@@ -100,13 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
     form.reset();
 
     printLine(transactionstoSave);
-    recalculTotals();
+    recalculTotals(transactionstoSave);
 
-    console.log(transactions);
-    // la transacción la guarda en una String de Json
+
     const jsonData = JSON.stringify(transactions);
 
-    // Guarda la string en local
-    localStorage.setItem("transactions", jsonData);
   });
 });
