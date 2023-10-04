@@ -35,7 +35,7 @@
 #CreateTransactionBtn {
   background-color: #6933ff;
   border: #6933ff;
-  color: white;
+  color: #fff;
   font-size: 20px;
   font-family: Poppins;
   font-weight: 600;
@@ -62,7 +62,7 @@
   width: 100%;
   margin-left: 15px;
   margin-right: 15px;
-  background-color: white;
+  background-color: #fff;
   height: 100%;
   text-align: left;
   padding-bottom: 12px;
@@ -174,7 +174,7 @@
 }
 
 #info td {
-  background-color: white;
+  background-color: #fff;
   font-size: 20px;
   font-weight: 500;
   word-wrap: break-word;
@@ -197,10 +197,14 @@ body {
 .normal-text {
   color: #969CB2;
 }
+.title-text {
+  color: #363F5F;
+}
+
 
 .white-balance{
   background-color: #e4e4e4;
-  color: black;
+  color: #000;
 }
 .white-balance p{
   background-color: #e4e4e4;
@@ -209,16 +213,20 @@ body {
 
 .green-balance {
   background-color: #33cc95;
-  color: white;
+  color: #fff;
 }
 .red-balance {
   background-color: #E52E4D;
-  color: white;
+  color: #fff;
 }
 
 
 .invisible{
   display: none;
   visibility: hidden;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
