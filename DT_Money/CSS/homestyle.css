@@ -1,4 +1,4 @@
-#home {
+.home {
   background-color: #5429cc;
   height: 200px;
   align-items: stretch;
@@ -10,13 +10,13 @@
   padding-bottom: 2%;
   align-items: stretch;
 }
-#homewindow {
+.homewindow {
   margin-top: 20px;
   width: 92%;
   margin-left: 110px;
 }
 
-#window {
+.window {
   position: absolute;
   top: 160px;
   left: 0;
@@ -25,14 +25,14 @@
 
 
 
-#title {
+.title {
   color: #fff;
   text-align: left;
 }
 
 
 
-#CreateTransactionBtn {
+.BtnTransaction {
   background-color: #6933ff;
   border: #6933ff;
   color: #fff;
@@ -47,7 +47,7 @@
   padding-right: 20px;
 }
 
-#containerbalance {
+.containerbalance {
   display: flex;
   align-items: stretch;
   font-size: 25px;
@@ -57,7 +57,7 @@
   width: 1800px;
 }
 
-#entry {
+.entryDiv {
   float: left;
   width: 100%;
   margin-left: 15px;
@@ -69,27 +69,27 @@
   border-radius: 5px;
 }
 
-#entry p {
+.entryDiv p {
   font-size: 18px;
   margin-left: 20px;
   color: #969cb2;
 }
 
-#entry p img {
+.entryDiv p img {
   font-size: 18px;
   float: right;
   margin-right: 20px;
   color: #969cb2;
 }
 
-#entry span {
+.entryDiv span {
   font-size: 40px;
   margin-left: 12px;
   font-weight: 400;
   word-wrap: break-word;
 }
 
-#exit {
+.exitDiv {
   float: left;
   width: 100%;
   background-color: white;
@@ -101,27 +101,27 @@
   border-radius: 5px;
 }
 
-#exit p {
+.exitDiv p {
   font-size: 18px;
   margin-left: 20px;
   color: #969cb2;
 }
 
-#exit p img {
+.exitDiv p img {
   font-size: 18px;
   float: right;
   margin-right: 20px;
   color: #969cb2;
 }
 
-#exit span {
+.exitDiv span {
   font-size: 40px;
   margin-left: 12px;
   font-weight: 400;
   word-wrap: break-word;
 }
 
-#balance {
+#balanceDiv {
   float: left;
   width: 100%;
   height: 100%;
@@ -130,15 +130,14 @@
   text-align: left;
   padding-bottom: 12px;
   border-radius: 5px;
-
 }
 
-#balance p {
+#balanceDiv p {
   font-size: 18px;
   margin-left: 20px;
 }
 
-#balance p img {
+#balanceDiv p img {
   font-size: 18px;
   float: right;
   margin-right: 20px;
@@ -146,34 +145,34 @@
 }
 
 
-#balance span {
+#balanceDiv span {
   font-size: 40px;
   margin-left: 12px;
   font-weight: 400;
   word-wrap: break-word;
 }
 
-#info {
+.info {
   position: absolute;
   font-size: 20px;
   margin-top: 160px;
   width: 1800px;
 }
 
-#info table{
+.info table{
   border-collapse: separate;
   border-spacing: 0 15px;
   width: 98%;
   margin-left: 110px;
 }
 
-#info table tr th {
+.info table tr th {
   text-align: left;
   font-size: 18px;
   color: #969cb2;
 }
 
-#info td {
+.info td {
   background-color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -201,15 +200,6 @@ body {
   color: #363F5F;
 }
 
-
-.white-balance{
-  background-color: #e4e4e4;
-  color: #000;
-}
-.white-balance p{
-  background-color: #e4e4e4;
-  color: #969cb2;
-}
 
 .green-balance {
   background-color: #33cc95;

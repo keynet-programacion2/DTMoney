@@ -5,25 +5,10 @@ const INITIAL_VALUES = {
   totalBalance: 0,
 };
 const jsonData = localStorage.getItem("transactions");
-const table = document.querySelector("#info table");
-
-// function recalculTotals() {
-
-//   const totals = transactions.reduce((totals,transaction) => {
-
-//     if (transaction.flag === "1") {
-//       totals.totalEntrys += transaction.price;
-//     } else if (transaction.flag === "0") {
-//       totals.totalExits += transaction.price;
-//     }
-
-//     return totals;
-//   }, INITIAL_VALUES);
-//   console.log(INITIAL_VALUES)
-// }
+const table = document.querySelector(".info table");
 
 function printLine(transaction) {
-  const newRow = document.createElement("tr");
+  const newTR = document.createElement("tr");
   //Create ftitle as a td
   const titleCell = document.createElement("td");
   titleCell.textContent = transaction.title;
@@ -54,12 +39,12 @@ function printLine(transaction) {
   dateCell.textContent = transaction.date;
   dateCell.className = "normal-text";
   //append the td's to the tr
-  newRow.appendChild(titleCell);
-  newRow.appendChild(priceCell);
-  newRow.appendChild(categoryCell);
-  newRow.appendChild(dateCell);
+  newTR.appendChild(titleCell);
+  newTR.appendChild(priceCell);
+  newTR.appendChild(categoryCell);
+  newTR.appendChild(dateCell);
   //append the tr in table
-  table.appendChild(newRow);
+  table.appendChild(newTR);
 }
 
 function recalculTotals(transaction) {
@@ -76,24 +61,24 @@ function recalculTotals(transaction) {
 }
 
 function printBalance() {
-  const entrynSpan = document.getElementById("entryn");
+  const entrynSpan = document.getElementById("entry");
   entrynSpan.textContent = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency: "EUR",
   }).format(INITIAL_VALUES.totalEntrys);
 
-  const exitnSpan = document.getElementById("exitn");
+  const exitnSpan = document.getElementById("exit");
   exitnSpan.textContent = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency: "EUR",
   }).format(INITIAL_VALUES.totalExits);
 
-  const balancenSpan = document.getElementById("balancen");
+  const balancenSpan = document.getElementById("balance");
   balancenSpan.textContent = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency: "EUR",
   }).format(INITIAL_VALUES.totalBalance);
-  const balancenDiv = document.getElementById("balance");
+  const balancenDiv = document.getElementById("balanceDiv");
   if (INITIAL_VALUES.totalBalance >= 0) {
     balancenDiv.className = "green-balance";
   } else {
@@ -106,11 +91,8 @@ function loadLocalStorage() {
   
   transactions.forEach((transaction) => {
     const transactionstoPrint = {
-      title: transaction.title,
+      ...transaction,
       price: parseFloat(transaction.price),
-      category: transaction.category,
-      date: transaction.date,
-      flag: transaction.flag,
     };
     const jsonData = JSON.stringify(transactions);
     console.log(transactionstoPrint);
